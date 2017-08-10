@@ -1,0 +1,49 @@
+<!--
+  Generated template for the AdminPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>Admin</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-label color="secondary">Date </ion-label>
+            <ion-input [(ngModel)]="date"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="secondary">Entree </ion-label>
+            <ion-input [(ngModel)]="entree"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="secondary">Fruit Option </ion-label>
+            <ion-input [(ngModel)]="fruitOption"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="secondary">Vegie Option </ion-label>
+            <ion-input [(ngModel)]="vegieOption"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="secondary">Milk Option </ion-label>
+            <ion-input [(ngModel)]="milkOption"></ion-input>
+        </ion-item>
+    </ion-list>
+
+    <button ion-button round full color="secondary" (click)="postMenu()">Submit</button>
+
+</ion-content>
