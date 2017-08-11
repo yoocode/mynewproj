@@ -21,18 +21,18 @@ export class MapPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MapPage');
-    var myVar = document.createElement("p");
+    var dataElem = document.createElement("p");
     
-    console.log(this.service.getAllMap().subscribe(data => {
+  this.service.getAllMap().subscribe(data => {
       for( var i = 0; i < data.length; i++) {
-        myVar.innerHTML += "SCHOOL NAME: " + data[i].schoolname + "<br>";
-        myVar.innerHTML += "Street address: " + data[i].street1 + "<br>";              
-        myVar.innerHTML += "City: " + data[i].city + "<br>";              
-        myVar.innerHTML += "Zip: " + data[i].zip + "<br><br>";              
-                
+        dataElem.innerHTML += "SCHOOL NAME: " + data[i].schoolname + "<br>";
+        dataElem.innerHTML += "Street address: " + data[i].street1 + "<br>";              
+        dataElem.innerHTML += "City: " + data[i].city + "<br>";              
+        dataElem.innerHTML += "Zip: " + data[i].zip + "<br><br>";              
       }
-    }))
-    document.getElementById("data").appendChild(myVar);
+    })
+    
+    document.getElementById("data").appendChild(dataElem);
   }
 
 }

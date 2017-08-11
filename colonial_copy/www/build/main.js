@@ -34,16 +34,16 @@ var MapPage = (function () {
     }
     MapPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad MapPage');
-        var myVar = document.createElement("p");
-        console.log(this.service.getAllMap().subscribe(function (data) {
+        var dataElem = document.createElement("p");
+        this.service.getAllMap().subscribe(function (data) {
             for (var i = 0; i < data.length; i++) {
-                myVar.innerHTML += "SCHOOL NAME: " + data[i].schoolname + "<br>";
-                myVar.innerHTML += "Street address: " + data[i].street1 + "<br>";
-                myVar.innerHTML += "City: " + data[i].city + "<br>";
-                myVar.innerHTML += "Zip: " + data[i].zip + "<br><br>";
+                dataElem.innerHTML += "SCHOOL NAME: " + data[i].schoolname + "<br>";
+                dataElem.innerHTML += "Street address: " + data[i].street1 + "<br>";
+                dataElem.innerHTML += "City: " + data[i].city + "<br>";
+                dataElem.innerHTML += "Zip: " + data[i].zip + "<br><br>";
             }
-        }));
-        document.getElementById("data").appendChild(myVar);
+        });
+        document.getElementById("data").appendChild(dataElem);
     };
     return MapPage;
 }());
@@ -225,11 +225,13 @@ var HomePage = (function () {
     function HomePage(navCtrl) {
         this.navCtrl = navCtrl;
     }
+    HomePage.prototype.ionViewDidLoad = function () {
+    };
     return HomePage;
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/byung-chunyoo/Documents/dev/labs/afterZip/passion/colonial_copy/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n        <ion-title>Home</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <h2>Colonial Care a Van Mobile</h2>\n\n    <p>\n        Again, this summer you will find the “Colonial Care-A-Vans” distributing lunch to children throughout our district\n    </p>\n    <p>\n        Program runs from June 19th-August 3rd.\n    </p>\n    <p>\n        This app will show you where the “Colonial Care-A-Vans” is during its operation.\n    </p>\n\n    <button ion-button secondary menuToggle>Toggle Menu</button>\n\n    <!-- <p>\n        If you want to see state-wide summer food program, this <a href="https://de01922744.schoolwires.net/page/2790">link</a> will show you the way.\n    </p> -->\n\n    <ion-img width="380" height="200" src="assets/images/Food.jpg" style="bottom: glyphicon-object-align-bottom"></ion-img>\n\n</ion-content>'/*ion-inline-end:"/Users/byung-chunyoo/Documents/dev/labs/afterZip/passion/colonial_copy/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/byung-chunyoo/Documents/dev/labs/afterZip/passion/colonial_copy/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n        <ion-title>Home</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <h2>Colonial Care a Van Mobile</h2>\n\n    <p>\n        Again, this summer you will find the “Colonial Care-A-Vans” distributing lunch to children throughout our district\n    </p>\n    <p>\n        Program runs from June 19th-August 3rd.\n    </p>\n    <p>\n        This app will show you where the “Colonial Care-A-Vans” is during its operation.\n    </p>\n\n    <button ion-button secondary menuToggle>Toggle Menu</button>\n\n    <!-- <p>\n        If you want to see state-wide summer food program, this <a href="https://de01922744.schoolwires.net/page/2790">link</a> will show you the way.\n    </p> -->\n\n    <ion-img width="380" height="200" style="display:flex; position:absolute; bottom:20px;" src="assets/images/Food.jpg"></ion-img>\n\n</ion-content>'/*ion-inline-end:"/Users/byung-chunyoo/Documents/dev/labs/afterZip/passion/colonial_copy/src/pages/home/home.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
 ], HomePage);
@@ -487,7 +489,7 @@ var ChildrenPage = (function () {
 ChildrenPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-children',template:/*ion-inline-start:"/Users/byung-chunyoo/Documents/dev/labs/afterZip/passion/colonial_copy/src/pages/children/children.html"*/'<!--\n  Generated template for the ChildrenPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n        <ion-title>Children</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>'/*ion-inline-end:"/Users/byung-chunyoo/Documents/dev/labs/afterZip/passion/colonial_copy/src/pages/children/children.html"*/,
+        selector: 'page-children',template:/*ion-inline-start:"/Users/byung-chunyoo/Documents/dev/labs/afterZip/passion/colonial_copy/src/pages/children/children.html"*/'<!--\n  Generated template for the ChildrenPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n        <ion-title>Children</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <p>\n        Children\'s page will have a button for map page which locates Care-a-Van, and a poll which asks opinions on the food.\n    </p>\n</ion-content>'/*ion-inline-end:"/Users/byung-chunyoo/Documents/dev/labs/afterZip/passion/colonial_copy/src/pages/children/children.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
 ], ChildrenPage);
