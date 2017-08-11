@@ -43,6 +43,10 @@ export class AdminPage {
     .subscribe(data => {
       console.log(data);
     });;
+    this.service.getAllMap()
+    .subscribe(data => {
+      console.log(data);
+    });;
     this.navCtrl.setRoot(HomePage);
   }
 

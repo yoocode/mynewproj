@@ -11,6 +11,10 @@ export class Service {
 
     }
 
+    getAllMap() : Observable<any>{
+        return this._http.get(`${this.urlforSpring}/map/getAllMap`)
+        .map(response => response.json());
+    }
     getAllMenu() : Observable<any>{
         return this._http.get(`${this.urlforSpring}/menu/getAll`)
         .map(response => response.json());

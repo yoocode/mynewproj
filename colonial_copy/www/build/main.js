@@ -34,16 +34,23 @@ var MapPage = (function () {
     }
     MapPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad MapPage');
-        console.log(this.service.getAllMenu().subscribe(function (data) {
-            console.log(data);
+        var myVar = document.createElement("p");
+        console.log(this.service.getAllMap().subscribe(function (data) {
+            for (var i = 0; i < data.length; i++) {
+                myVar.innerHTML += "SCHOOL NAME: " + data[i].schoolname + "<br>";
+                myVar.innerHTML += "Street address: " + data[i].street1 + "<br>";
+                myVar.innerHTML += "City: " + data[i].city + "<br>";
+                myVar.innerHTML += "Zip: " + data[i].zip + "<br><br>";
+            }
         }));
+        document.getElementById("data").appendChild(myVar);
     };
     return MapPage;
 }());
 MapPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-map',template:/*ion-inline-start:"/Users/byung-chunyoo/Documents/dev/labs/afterZip/passion/colonial_copy/src/pages/map/map.html"*/'<!--\n  Generated template for the MapPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n        <ion-title>Map</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>'/*ion-inline-end:"/Users/byung-chunyoo/Documents/dev/labs/afterZip/passion/colonial_copy/src/pages/map/map.html"*/,
+        selector: 'page-map',template:/*ion-inline-start:"/Users/byung-chunyoo/Documents/dev/labs/afterZip/passion/colonial_copy/src/pages/map/map.html"*/'<!--\n  Generated template for the MapPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n        <ion-title>Map</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list>\n\n        <ion-item id="item">\n            <h1>School List</h1>\n        </ion-item>\n        <ion-item id="data">\n        </ion-item>\n    </ion-list>\n\n\n</ion-content>'/*ion-inline-end:"/Users/byung-chunyoo/Documents/dev/labs/afterZip/passion/colonial_copy/src/pages/map/map.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_service__["a" /* Service */]])
 ], MapPage);
@@ -104,6 +111,11 @@ var AdminPage = (function () {
         };
         console.log(menudata);
         this.service.postMenu(menudata)
+            .subscribe(function (data) {
+            console.log(data);
+        });
+        ;
+        this.service.getAllMap()
             .subscribe(function (data) {
             console.log(data);
         });
@@ -217,7 +229,7 @@ var HomePage = (function () {
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/byung-chunyoo/Documents/dev/labs/afterZip/passion/colonial_copy/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n        <ion-title>Home</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <h2>Colonial Care a Van Mobile</h2>\n\n    <p>\n        Again, this summer you will find the “Colonial Care-A-Vans” distributing lunch to children throughout our district\n    </p>\n    <p>\n        Program runs from June 19th-August 3rd.\n    </p>\n    <p>\n        This app will show you where the “Colonial Care-A-Vans” is during its operation.\n    </p>\n\n    <button ion-button secondary menuToggle>Toggle Menu</button>\n\n    <p>\n        If you want to see state-wide summer food program, this <a href="https://de01922744.schoolwires.net/page/2790">link</a> will show you the way.\n    </p>\n\n    <ion-img width="380" height="200" src="assets/images/Food.jpg" style="bottom: glyphicon-object-align-bottom"></ion-img>\n\n</ion-content>'/*ion-inline-end:"/Users/byung-chunyoo/Documents/dev/labs/afterZip/passion/colonial_copy/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/byung-chunyoo/Documents/dev/labs/afterZip/passion/colonial_copy/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n        <ion-title>Home</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <h2>Colonial Care a Van Mobile</h2>\n\n    <p>\n        Again, this summer you will find the “Colonial Care-A-Vans” distributing lunch to children throughout our district\n    </p>\n    <p>\n        Program runs from June 19th-August 3rd.\n    </p>\n    <p>\n        This app will show you where the “Colonial Care-A-Vans” is during its operation.\n    </p>\n\n    <button ion-button secondary menuToggle>Toggle Menu</button>\n\n    <!-- <p>\n        If you want to see state-wide summer food program, this <a href="https://de01922744.schoolwires.net/page/2790">link</a> will show you the way.\n    </p> -->\n\n    <ion-img width="380" height="200" src="assets/images/Food.jpg" style="bottom: glyphicon-object-align-bottom"></ion-img>\n\n</ion-content>'/*ion-inline-end:"/Users/byung-chunyoo/Documents/dev/labs/afterZip/passion/colonial_copy/src/pages/home/home.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
 ], HomePage);
@@ -411,6 +423,10 @@ var Service = (function () {
         this._http = _http;
         this.urlforSpring = 'http://localhost:4040';
     }
+    Service.prototype.getAllMap = function () {
+        return this._http.get(this.urlforSpring + "/map/getAllMap")
+            .map(function (response) { return response.json(); });
+    };
     Service.prototype.getAllMenu = function () {
         return this._http.get(this.urlforSpring + "/menu/getAll")
             .map(function (response) { return response.json(); });
