@@ -9,9 +9,14 @@ Because Backend uses the embeded database, you must post new data each time.
 Frontend local host is 8100.
 -http://localhost:8100/: display mobile app
 
-Backend local host is 4040. \n
+Backend local host is 4040.
+
 -http://localhost:4040/map/getAllMap : display all list of school information
+
 -http://localhost:4040/map/post : use to post the school data
+
 -http://localhost:4040/menu/getAllMenu : display all list of menu information
+
 -http://localhost:4040/menu/post : use to post the menu data
+
 -http://localhost:4040/menu/{{id}} : use to delete the menu data
